@@ -1,5 +1,5 @@
 [build]
-  command = "npm run build"
+  command = "echo do nothing"
   publish = "out"
 
 [build.environment]
