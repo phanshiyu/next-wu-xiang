@@ -15,7 +15,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} w-full flex justify-center`}><div className='max-w-md'>{children}</div></body>
+      <body className={`${inter.className} w-full flex justify-center`}><div className='max-w-md w-full'>{children}</div></body>
     </html>
   )
 }

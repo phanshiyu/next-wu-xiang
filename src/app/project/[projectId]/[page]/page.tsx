@@ -20,7 +20,7 @@ export default function ProjectPage({
   const renderedImages = projectImages
     .slice(startIndex, endIndex)
     .map((image, i) => (
-      <Image key={i} alt="" className="max-w-md" src={image} />
+      <Image key={i} alt="" src={image} />
     ));
 
   const renderedPageLinks = [];
