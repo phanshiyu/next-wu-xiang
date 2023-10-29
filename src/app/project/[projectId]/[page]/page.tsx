@@ -19,17 +19,22 @@ export default function ProjectPage({
 
   const renderedImages = projectImages
     .slice(startIndex, endIndex)
-    .map((image, i) => (
-      <Image key={i} alt="" src={image} />
-    ));
+    .map((image, i) => <Image key={i} alt="" src={image} />);
 
   const renderedPageLinks = [];
   for (let i = 1; i <= numPages; i++) {
-    renderedPageLinks.push(
-      <Link key={i} className="mx-1" href={`/project/${params.projectId}/${i}`}>
-        <li className={`${i === page ? "text-gray-400" : ""}`}>{i}</li>
-      </Link>
-    );
+    if (i === page) {
+      renderedPageLinks.push(<li className="text-gray-400">{i}</li>);
+    } else {
+      renderedPageLinks.push(
+        <Link
+          key={i}
+          href={`/project/${params.projectId}/${i}`}
+        >
+          <li>{i}</li>
+        </Link>
+      );
+    }
   }
 
   const renderedNavItems = [];
@@ -41,7 +46,7 @@ export default function ProjectPage({
   } else {
     renderedNavItems.push(<div className="invisible">Prev</div>);
   }
-  renderedNavItems.push(<ul className="flex">{renderedPageLinks}</ul>);
+  renderedNavItems.push(<ul className="flex tabular-nums lining-nums space-x-2">{renderedPageLinks}</ul>);
   if (page < numPages) {
     renderedNavItems.push(
       <Link href={`/project/${params.projectId}/${page + 1}`}>Next</Link>
@@ -50,10 +55,12 @@ export default function ProjectPage({
 
   return (
     <div>
-      <Link className="text-3xl mb-2" href="/">&#128281;</Link>
+      <Link className="text-3xl mb-2" href="/">
+        &#128281;
+      </Link>
       <div className="flex flex-col items-center">
         <div className="mb-2">{renderedImages}</div>
-        <div className="flex justify-between w-full text-2xl">
+        <div className="flex justify-between w-full text-2xl pl-1 pr-1">
           {renderedNavItems}
         </div>
       </div>
