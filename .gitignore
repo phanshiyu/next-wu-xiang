@@ -36,4 +36,4 @@ yarn-error.log*
 next-env.d.ts
 
 src/app/_generated
-src/app/_project_images
+src/app/_project-images
